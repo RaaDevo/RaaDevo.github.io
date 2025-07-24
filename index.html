@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>KeElectronics - Home</title>
+  <link href="style.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="MainFrame">
+    <div class="LRbanner" style="background-color: #87ceeb; padding: 10px 20px; height: 115px;">
+      <div class="container">
+        <img src="images/KeElectronics_Logo.png" alt="KeElectronics Logo" width="60" height="60">
+        <div class="bannerText">KeElectronics</div>
+      </div>
+      <div class="container" id="authButtons" style="font-size:20px;"></div>
+    </div>
+    <div class="HListBanner" style="background-color: #A6C6D3; gap:100px; padding: 10px;">
+      <div class="container">
+        <img style="margin-left:10px" src="images/home.png" alt="Home" width="35" height="35">
+        <a class="bannerLink" href="index.html" style="padding: 10px 10px; color: black;">Home</a>
+      </div>
+      <div class="container">
+        <img style="margin-left:10px" src="images/shopcart.png" alt="Products" width="40" height="40">
+        <a class="bannerLink" href="KProductCatalogue2.html" style="padding: 10px 10px; color: black;">Products</a>
+      </div>
+      <div class="container">
+        <img style="margin-left:10px" src="images/aboutus.png" alt="About Us" width="35" height="35">
+        <a class="bannerLink" href="about.html" style="padding: 10px 10px; color: black;">About Us</a>
+      </div>
+      <div class="container">
+        <img style="margin-left:10px" src="images/contus.png" alt="Contact Us" width="35" height="35">
+        <a class="bannerLink" href="contact.html" style="padding: 10px 10px; color: black;">Contact Us</a>
+      </div>
+    </div>
+
+    <section class="product-catalogue">
+      <h1>Welcome to KeElectronics</h1>
+      <p class="subheading">Your one-stop shop for laptops, tablets and smartphones.</p>
+      <a href="KProductCatalogue2.html" class="linkButton" style="font-size:20px;">Browse Products</a>
+    </section>
+
+    <div class="VListBanner" style="background-color: #87ceeb; padding: 20px; align-items: center;">
+      <span style="font-size: 15px">© 2025 KeElectronics. All rights reserved.</span>
+    </div>
+  </div>
+
+  <script>
+    const authButtons = document.getElementById('authButtons');
+    const username = localStorage.getItem('loggedInUser');
+
+    if (username) {
+      authButtons.innerHTML = `
+        <span style="font-size: 26px; margin-right: 20px;">Welcome, <strong>${username}</strong></span>
+        <button onclick="logout()" class="signup-btn">Logout</button>
+      `;
+    } else {
+      authButtons.innerHTML = `
+        <a href="signin.html" class="text-link">Sign In</a>
+        <a href="signup.html"><button class="signup-btn">Sign Up</button></a>
+      `;
+    }
+
+    function logout() {
+      localStorage.removeItem('loggedInUser');
+      window.location.reload();
+    }
+  </script>
+</body>
+</html>
